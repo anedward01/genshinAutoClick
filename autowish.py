@@ -3,8 +3,6 @@ import cv2, time, atexit, pyautogui, sys, numpy as np, pandas as pd
 from mss import mss
 from PIL import Image
 
-index = ["color", "color_name", "hex", "R", "G", "B"]
-colorFile = pd.read_csv('colors.csv', names=index, header=None)
 clicked = False
 r = g = b = xpos = ypos = 0
 img = None
@@ -93,11 +91,10 @@ def theAutoclicker():
         pyautogui.click()
         time.sleep(2)
         maskImage()
-        print("You got " + purple + "purples and " + orange + " oranges so far.")
+        print("You got " + str(purple) + "purples and " + str(orange) + " oranges so far.")
         time.sleep(3)
         mouse.position = (1834, 51)
         pyautogui.click()
-        atexit.register(print("You got " + purple + "purples and " + orange + " oranges this time."))
 
 try:
     theAutoclicker()
